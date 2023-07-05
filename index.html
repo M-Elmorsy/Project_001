@@ -12,12 +12,40 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <title>Project_001</title>
 </head>
-
 <body>
+    <!-- speed up image -->
+    <script>
+        function lazyLoadImages() {
+          var images = document.querySelectorAll('img[data-src]');
+          for (var i = 0; i < images.length; i++) {
+            if (isInViewport(images[i])) {
+              images[i].setAttribute('src', images[i].getAttribute('data-src'));
+              images[i].removeAttribute('data-src');
+              images[i].style.display = 'block'; // Show the image
+            }
+          }
+        }
+    
+        function isInViewport(element) {
+          var rect = element.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+        }
+    
+        // Attach lazy load function to scroll event
+        window.addEventListener('scroll', lazyLoadImages);
+        // Call the function on page load as well
+        window.addEventListener('load', lazyLoadImages);
+      </script>
+    <!-- speed up image -->
     <!-- start header -->
     <header>
         <div class="container">
-            <img class="logo" src="images/logo.png" alt="">
+            <img class="logo" data-data-src="images/logo.png" alt="">
             <nav>
                 <i class="fas fa-sliders-h toggle-menu"></i>
                 <ul>
@@ -105,7 +133,7 @@
     <!-- start design -->
     <div class="design" id="Design">
         <div class="img">
-            <img src="images/mobile.png" alt="">
+            <img data-data-src="images/mobile.png" alt="">
         </div>
         <div class="text">
             <h3>OUR DESIGN COMES WITH...</h3>
@@ -135,56 +163,56 @@
         </div>
         <div class="images-container">
             <div class="box">
-                <img src="images/shuffle-01.jpg" alt="">
+                <img data-src="images/shuffle-01.jpg" alt="">
                 <div class="caption">
                     <h3>Heading</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-02.jpg" alt="">
+                <img data-src="images/shuffle-02.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-03.jpg" alt="">
+                <img data-src="images/shuffle-03.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-04.jpg" alt="">
+                <img data-src="images/shuffle-04.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-05.jpg" alt="">
+                <img data-src="images/shuffle-05.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-06.jpg" alt="">
+                <img data-src="images/shuffle-06.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-07.jpg" alt="">
+                <img data-src="images/shuffle-07.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
                 </div>
             </div>
             <div class="box">
-                <img src="images/shuffle-08.jpg" alt="">
+                <img data-src="images/shuffle-08.jpg" alt="">
                 <div class="caption">
                     <h3>Headinf</h3>
                     <p>Paragraph</p>
@@ -197,7 +225,7 @@
     <!-- start video -->
     <div class="video">
         <div class="video">
-            <video autoplay muted loop src="images/awesome-video.mp4"></video>
+            <video autoplay muted loop data-src="images/awesome-video.mp4"></video>
         </div>
         <div class="info">
             <h2>SUPER AWESOME VIDEO HERE</h2>
@@ -214,7 +242,7 @@
                 <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget
                     tincidunt.</p>
             </div>
-            <img src="images/about.png" alt="">
+            <img data-src="images/about.png" alt="">
         </div>
     </div>
     <!-- End About -->
@@ -253,7 +281,7 @@
                     eget tincidunt.</p>
                 <div class="box">
                     <div class="image">
-                        <img src="images/skills-01.jpg" alt="">
+                        <img data-src="images/skills-01.jpg" alt="">
                     </div>
                     <div class="text">
                         <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet
@@ -263,7 +291,7 @@
                 </div>
                 <div class="box">
                     <div class="image">
-                        <img src="images/skills-02.jpg" alt="">
+                        <img data-src="images/skills-02.jpg" alt="">
                     </div>
                     <div class="text">
                         <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet
@@ -450,7 +478,7 @@
     <!-- start footer -->
     <footer>
         <div class="container">
-            <img src="images/logo.png" alt="">
+            <img data-src="images/logo.png" alt="">
             <h4>WE are social</h4>
             <div class="social-icons">
                 <i class="fab fa-facebook-f"></i>
